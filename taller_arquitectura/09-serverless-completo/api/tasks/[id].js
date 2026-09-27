@@ -1,9 +1,8 @@
-import { getTasksByUser, completeTask } from '../../adapters/postgresAdapter.js';
-import taskDomain from '../../domain/taskDomain.js';
+const { getTasksByUser, completeTask } = require('../../adapters/postgresAdapter.js');
+const taskDomain = require('../../domain/taskDomain.js');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const { id } = req.query; 
-
   if (req.method === 'GET') {
     try {
       const tasks = await getTasksByUser(id);
@@ -12,7 +11,6 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: error.message });
     }
   } 
-  
   if (req.method === 'PATCH') {
     try {
       taskDomain.markAsCompleted(id); 
@@ -22,6 +20,5 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: error.message });
     }
   }
-
   return res.status(405).json({ message: 'Method Not Allowed' });
-}
+};

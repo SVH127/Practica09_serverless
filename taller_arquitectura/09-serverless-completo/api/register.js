@@ -1,7 +1,7 @@
-import { createUser } from '../adapters/postgresAdapter.js';
-import userDomain from '../domain/userDomain.js';
+const { createUser } = require('../adapters/postgresAdapter.js');
+const userDomain = require('../domain/userDomain.js');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ message: 'Method Not Allowed' });
   try {
     const { username, password } = req.body;
@@ -11,4 +11,4 @@ export default async function handler(req, res) {
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
-}
+};
