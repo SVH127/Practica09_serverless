@@ -35,7 +35,7 @@ async function loadTasks() {
     const list = document.getElementById('task-list');
     list.innerHTML = '';
     tasks.forEach(t => {
-        list.innerHTML += `<li>${t.title} ${t.completed ? '<span>✅</span>' : `<button onclick="completeTask(${t.id})">Completar</button>`}</li>`;
+        list.innerHTML += `<li>${t.title} ${t.completed ? '<span>✅</span>' : `<button onclick="completeTask('${t.id}')">Completar</button>`}</li>`;
     });
 }
 
