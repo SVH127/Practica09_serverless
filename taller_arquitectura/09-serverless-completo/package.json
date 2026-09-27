@@ -11,5 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0"
-  }
+  },
+  "type": "module"
 }
