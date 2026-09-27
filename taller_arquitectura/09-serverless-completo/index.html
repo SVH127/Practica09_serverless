@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso Serverless</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .hidden { display: none; }
+        #taskList { list-style: none; padding: 0; max-width: 300px; margin: 20px auto; text-align: left; }
+        #taskList li { padding: 10px; border-bottom: 1px solid #ccc; display: flex; justify-content: space-between; }
+        button { cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div id="loginSection">
+        <h2>Acceso Serverless</h2>
+        <input type="text" id="username" placeholder="Usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+        <br><br>
+        <button onclick="login()">Iniciar Sesión</button>
+        <button onclick="register()">Registrarse</button>
+    </div>
+
+    <div id="taskSection" class="hidden">
+        <h2>Mis Tareas</h2>
+        <input type="text" id="taskTitle" placeholder="Nueva tarea">
+        <button onclick="addTask()">Agregar</button>
+        <ul id="taskList"></ul>
+        <br>
+        <button onclick="logout()">Cerrar Sesión</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
